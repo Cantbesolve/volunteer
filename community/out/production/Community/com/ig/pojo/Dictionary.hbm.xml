@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ig.pojo" >
+	<class name="Dictionary" table="t_dictionary" >
+		<id name="id"  >
+			<generator class="native"></generator>
+		</id>
+		<property name="typename"></property>
+		<property name="parentid"></property>
+		<set name="atype" inverse="true" lazy="true">
+			<key column="atype"></key>
+			<one-to-many class="Activity"></one-to-many>
+		</set>
+		<set name="transport" inverse="true" lazy="true">
+			<key column="transport" ></key>
+			<one-to-many class="Activity"></one-to-many>
+		</set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ig.pojo" >
+	<class name="User" table="t_user" >
+		<id name="id"  >
+			<generator class="native"></generator>
+		</id>
+		<property name="usercode" ></property>
+		<property name="username"></property>
+		<property name="password"></property>
+		<property name="email"></property>
+		<property name="level"></property>
+		<property name="birth"></property>
+		<property name="phone"></property>
+		<property name="emp"></property>
+		<property name="address"></property>
+		<property name="status"></property>
+		<property name="gender"></property>
+		<property name="createtime"></property>
+		<set name="putActivities" lazy="true" inverse="true">
+			<key column="createby"></key>
+			<one-to-many class="Activity"></one-to-many>
+		</set>
+		<set name="hasInActivities" table="t_user_activity" lazy="true">
+			<key column="userid"></key>
+			<many-to-many class="Activity" column="aid"></many-to-many>
+		</set>
+		<set name="hasPutLogger" lazy="true" inverse="true">
+			<key column="userid"></key>
+			<one-to-many class="Logger"></one-to-many>
+		</set>
+		<set name="hasPutComment" lazy="true" inverse="true">
+			<key column="userid"></key>
+			<one-to-many class="Comment"></one-to-many>
+		</set>
+		<set name="hasGetComment" lazy="true" inverse="true">
+			<key column="uid"></key>
+			<one-to-many class="Comment"></one-to-many>
+		</set>
+
+	</class>
+</hibernate-mapping>

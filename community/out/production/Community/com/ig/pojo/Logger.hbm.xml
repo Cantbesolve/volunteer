@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ig.pojo" >
+	<class name="Logger" table="t_logger" >
+		<id name="id"  >
+			<generator class="native"></generator>
+		</id>
+		<property name="title"></property>
+		<property name="video"></property>
+		<property name="picture"></property>
+		<property name="content"></property>
+		<property name="status"></property>
+		<property name="createtime"></property>
+		<property name="dianzan"></property>
+		<many-to-one name="user" class="User" lazy="false" >
+		</many-to-one>
+		<many-to-one name="activity" class="Activity" lazy="false" >
+		</many-to-one>
+		<set name="comments" lazy="true" inverse="true">
+			<key column="lid"></key>
+			<one-to-many class="Comment"></one-to-many>
+		</set>
+
+	</class>
+</hibernate-mapping>

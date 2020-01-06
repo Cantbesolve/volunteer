@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ig.pojo" >
+	<class name="Activity" table="t_activity" >
+		<id name="id"  >
+			<generator class="native"></generator>
+		</id>
+		<property name="acode" ></property>
+		<property name="atitle"></property>
+		<property name="hascount"></property>
+		<property name="acount"></property>
+		<property name="apply_endtime"></property>
+		<property name="starttime"></property>
+		<property name="endtime"></property>
+		<property name="pay"></property>
+		<property name="apply_fee"></property>
+		<property name="site"></property>
+		<property name="content"></property>
+		<property name="remark"></property>
+		<property name="createtime"></property>
+		<property name="status"></property>
+		<property name="picture"></property>
+		<property name="report"></property>
+		<property name="ban"></property>
+		<property name="onestar_count"></property>
+		<property name="twostar_count"></property>
+		<property name="threestar_count"></property>
+		<property name="fourstar_count"></property>
+		<property name="fivestar_count"></property>
+		<many-to-one name="atype" class="Dictionary" lazy="false" >
+		</many-to-one>
+		<many-to-one name="transport" class="Dictionary" lazy="false">
+		</many-to-one>
+		<many-to-one name="createby" class="User" lazy="false" >
+		</many-to-one>
+		<set name="users" table="t_user_activity" inverse="true" lazy="true">
+			<key column="aid"></key>
+			<many-to-many class="User" column="userid"></many-to-many>
+		</set>
+		<set name="loggers" inverse="true" lazy="true">
+			<key column="aid"></key>
+			<one-to-many class="Logger" ></one-to-many>
+		</set>
+
+	</class>
+</hibernate-mapping>

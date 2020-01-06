@@ -1,0 +1,16 @@
+
+
+.starts ul{
+    float:left;
+}
+
+.starts ul li.on{
+     background:url(images/stars2.png) no-repeat;
+ }
+.starts ul span{
+    display:inline;
+    float:left;
+    padding-left:10px;
+    height:21px;
+    line-height:21px;
+}

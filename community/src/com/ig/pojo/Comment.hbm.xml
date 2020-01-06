@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ig.pojo" >
+	<class name="Comment" table="t_comment" >
+		<id name="id"  >
+			<generator class="native"></generator>
+		</id>
+		<property name="content"></property>
+
+		<property name="createtime"></property>
+		<many-to-one name="logger" class="Logger" lazy="false">
+		</many-to-one>
+		<many-to-one name="beforeUser" class="User" lazy="false">
+		</many-to-one>
+		<many-to-one name="afterUser" class="User" lazy="false">
+		</many-to-one>
+	</class>
+</hibernate-mapping>
