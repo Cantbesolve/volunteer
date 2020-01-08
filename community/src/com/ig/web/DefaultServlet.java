@@ -11,11 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * @author 李祥
- * @date 18/12/14
- * @version V1.0
- */
+
 public class DefaultServlet extends BaseServlet {
     TestService service = new TestService();
     ActivityService indexservice = new ActivityServiceImpl();

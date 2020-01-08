@@ -22,15 +22,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * @author 李祥
- * @date 18/12/14
- * @version V1.0
- */
+
 public class ActivityServlet extends BaseServlet {
     DictionaryService dictionaryService = new DictionaryServiceImpl();
     ActivityService service = new ActivityServiceImpl();
